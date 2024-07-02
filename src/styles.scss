@@ -1,0 +1,17 @@
+/* You can add global styles to this file, and also import other style files */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+// :host ::ng-deep .custom-spinner circle{
+//     stroke: white;
+// }
+:host ::ng-deep .mat-progress-spinner circle, .mat-spinner circle {   
+    stroke: #0CC20C;
+}
+.mat-mdc-form-field.mat-mdc-form-field.mat-mdc-form-field.mat-mdc-form-field.mat-mdc-form-field .mdc-notched-outline__notch {
+    border-right-style: hidden;
+  }

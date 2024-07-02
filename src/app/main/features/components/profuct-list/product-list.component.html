@@ -1,0 +1,105 @@
+<div *ngIf="isLoading === true; else gotother" class="flex justify-center pt-24"> 
+  <mat-spinner strokeWidth="10" diameter="200" class="custom-spinner"></mat-spinner>
+</div>
+
+<ng-template #gotother>
+  <div class="p-6 overflow-y-auto h-screen">
+    <div class="grid grid-cols-4 gap-5 p-4 mt-12">
+      <div class="col-span-1 " *ngFor="let card of shoppingCards">
+        <mat-card class="bg-gray-200 p-5 shadow-2xl transition duration-300 ease-in-out hover:bg-gray-300 hover:cursor-pointer  ">
+          <img
+            mat-card-image
+            [src]="card.imageUrl"
+            alt="Product Image"
+            class="max-h-72 w-96  rounded-lg"
+          />
+          <mat-card-subtitle class="pl-3 pt-2">{{
+            card.description
+          }}</mat-card-subtitle>
+          <div class="flex items-center pl-3">
+            <svg
+              class="w-4 h-4 text-yellow-300 mr-1"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="currentColor"
+              viewBox="0 0 22 20"
+            >
+              <path
+                d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"
+              />
+            </svg>
+            <svg
+              class="w-4 h-4 text-yellow-300 mr-1"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="currentColor"
+              viewBox="0 0 22 20"
+            >
+              <path
+                d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"
+              />
+            </svg>
+            <svg
+              class="w-4 h-4 text-yellow-300 mr-1"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="currentColor"
+              viewBox="0 0 22 20"
+            >
+              <path
+                d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"
+              />
+            </svg>
+            <svg
+              class="w-4 h-4 text-yellow-300 mr-1"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="currentColor"
+              viewBox="0 0 22 20"
+            >
+              <path
+                d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"
+              />
+            </svg>
+            <svg
+              class="w-4 h-4 text-gray-300 mr-1 dark:text-gray-500"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="currentColor"
+              viewBox="0 0 22 20"
+            >
+              <path
+                d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"
+              />
+            </svg>
+            <!-- <p class="p-4 text-sm font-medium text-gray-500 dark:text-gray-400">
+              4.95 out of 5
+            </p> -->
+          </div>
+          <mat-card-content class="font-bold text-xl mt-2">
+            $ {{ card.price }}
+          </mat-card-content>
+  
+          <mat-card-actions>
+            <div class="flex flex-row space-x-2 mt-2">
+              <button
+                class="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded"
+                (click)="addToCart(card)"
+              >
+                Add to cart
+              </button>
+              <button
+                class="bg-gray-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+              >
+                Details
+              </button>
+            </div>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+
+

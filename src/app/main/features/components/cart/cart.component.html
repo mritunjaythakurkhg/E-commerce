@@ -1,0 +1,89 @@
+<div>
+<h1 class="text-center pt-20">My shopping cart</h1>
+</div>
+<div
+  *ngIf="cartItems.length === 0"
+  class="relative py-3 pl-4 pr-10 leading-normal text-red-700 bg-red-100 rounded-lg text-center "
+  role="alert"
+>
+  <p>No Item In cart</p>
+</div>
+
+<!-- <div class="grid grid-cols-3 gap-4 p-4" *ngIf="cartItems.length > 0">
+  <mat-card class="bg-white p-4 shadow-md">
+    <div class="col-span-1" *ngFor="let item of cartItems">
+      <img mat-card-image [src]="item.imageUrl" alt="Product Image" />
+      <mat-card-content>
+        {{ item.description }}
+      </mat-card-content>
+      <mat-card-content> Price {{ item.price }} </mat-card-content>
+    </div>
+  </mat-card>
+</div> -->
+
+<div *ngIf="cartItems.length > 0">
+  <mat-card class="bg-white p-10 ml-10 mr-10 shadow-md flex">
+    <div class="flex flex-row">
+      <div class="basis-1/2 text-center">Description</div>
+      <div class="basis-1/4 text-center">Quantity</div>
+      <div class="basis-1/4 text-center">Remove</div>
+      <div class="basis-1/4 text-center">Price</div>
+      <div class="basis-1/4 text-center">Sub Total</div>
+
+    </div>
+    <div *ngFor="let item of cartItems; let i = index">
+      <div>
+        <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700" />
+      </div>
+      <div class="flex flex-row">
+        <div class="basis-1/2 flex flex-row">
+          <img
+            mat-card-image
+            [src]="item.imageUrl"
+            alt="Product Image"
+            class="h-24"
+          />
+          <P class="p-6">{{ item.description }}</P>
+        </div>
+        <div class="basis-1/4 text-center">
+          <div class="flex justify-center items-center mt-8">
+            <div
+              class="flex justify-center items-center w-10 h-10 border border-gray-500 bg-gray-600"
+              (click)="increaseQuantity(item)"
+            >
+              <span class="text-xl font-bold">+</span>
+            </div>
+            <div
+              class="flex justify-center items-center w-10 h-10 border border-gray-500"
+            >
+              <span class="text-xl font-bold">{{ item.quantity }}</span>
+            </div>
+            <div
+              class="flex justify-center items-center w-10 h-10 border border-gray-500 bg-gray-100"
+              (click)="decreaseQuantity(item,i)"
+            >
+              <span class="text-xl font-bold">-</span>
+            </div>
+          </div>
+        </div>
+        <div class="basis-1/4 text-center">
+          <div class="flex justify-center items-center mt-8">
+            <button (click)="deleteItem(item,i)">
+              <span>
+                <mat-icon class="h-2" [ngStyle]="{'color':'red'}" *ngIf="!item.loading">delete</mat-icon>
+                <mat-spinner diameter="50" *ngIf="item.loading"></mat-spinner>
+              </span>
+            </button>
+          </div>
+        </div>
+        <div class="basis-1/4 text-center mt-8">{{ item.price}} </div>
+        <div class="basis-1/4 text-center mt-8"> {{ item.price * item.quantity }}</div>
+      </div>
+    </div>
+    <div>
+      <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700 " /></div>
+      <div class="text-end ">
+    <p class=" font-bold text-2xl text-red-500">Total Price: ${{ getTotalPrice() }}</p>
+  </div>
+  </mat-card>
+</div>

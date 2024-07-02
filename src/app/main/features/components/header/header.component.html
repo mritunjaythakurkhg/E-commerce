@@ -1,0 +1,25 @@
+<header class="fixed w-full z-10">
+<div class="grid grid-cols-3">
+  <mat-toolbar class="bg-gray-800">
+    <div class="grid grid-cols-2 gap-x-4">
+      <button>
+        <mat-icon [ngStyle]="{ color: 'white' }">menu</mat-icon>
+      </button>
+      <span class="text-white">My App</span>
+    </div>
+  </mat-toolbar>
+  <mat-toolbar class="bg-gray-800">
+     <!-- <form [formGroup]="searchForm"> -->
+    <input  placeholder="search" class="rounded-lg w-full text-center focus:outline-none" [(ngModel)]="searchText" (ngModelChange)="onchange($event)">
+    <!-- <mat-icon>search</mat-icon> -->
+  <!-- </form > -->
+  </mat-toolbar>
+
+  <mat-toolbar class="bg-gray-800 flex justify-end space-x-48">
+    <button (click)="goAddProduct()"><mat-icon  [ngStyle]="{ color: 'white' }" class="mt-2">add_shopping_cart</mat-icon></button>
+    <button (click)="goToCart()"><mat-icon class="mr-2" [ngStyle]="{ color: 'white' }" [matBadge]="getCartItemCount()" matBadgeColor="warn"
+      >shopping_cart</mat-icon></button>
+  </mat-toolbar>
+</div>
+</header>
+
